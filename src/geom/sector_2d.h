@@ -32,8 +32,8 @@
 #ifndef RCSC_GEOM_SECTOR2D_H
 #define RCSC_GEOM_SECTOR2D_H
 
-#include <geom/region_2d.h>
-#include <geom/vector_2d.h>
+#include <rcsc/geom/region_2d.h>
+#include <rcsc/geom/vector_2d.h>
 
 namespace rcsc {
 

@@ -32,13 +32,11 @@
 #ifndef RCSC_GEOM_VECTOR2D_H
 #define RCSC_GEOM_VECTOR2D_H
 
-#include <geom/angle_deg.h>
+#include <rcsc/geom/angle_deg.h>
 
 #include <functional>
 #include <iostream>
 #include <cmath>
-
-using namespace rcsc;
 
 namespace rcsc {
 

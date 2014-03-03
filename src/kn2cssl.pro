@@ -4,7 +4,9 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network script scripttools # xml opengl
+QT       += core gui network serialport
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = kn2cssl
 TEMPLATE = app
@@ -12,7 +14,7 @@ TEMPLATE = app
 #MAKEFILE_GENERATOR = UNIX
 #TARGET_PLATFORM  = unix
 #QMAKE_INCREMENTAL_STYLE = sublib
-QMAKE_CXXFLAGS += -std=c++0x
+QMAKE_CXXFLAGS += -std=c++11
 
 CONFIG += debug
 #QMAKE_CXXFLAGS += --coverage
@@ -73,21 +75,6 @@ INCLUDEPATH += ai/strategy
 
 SOURCES +=	main.cpp \
     etc/logger.cpp \
-    geom/voronoi_diagram_original.cpp \
-    geom/vector_2d.cpp \
-    geom/triangle_2d.cpp \
-    geom/segment_2d.cpp \
-    geom/sector_2d.cpp \
-    geom/rect_2d.cpp \
-    geom/ray_2d.cpp \
-    geom/polygon_2d.cpp \
-    geom/matrix_2d.cpp \
-    geom/line_2d.cpp \
-    geom/delaunay_triangulation.cpp \
-    geom/convex_hull.cpp \
-    geom/composite_region_2d.cpp \
-    geom/circle_2d.cpp \
-    geom/angle_deg.cpp \
     grSim/grSim_Replacement.pb.cc \
     grSim/grSim_Packet.pb.cc \
     grSim/grSim_Commands.pb.cc \
@@ -162,32 +149,30 @@ SOURCES +=	main.cpp \
     ai/skill/skillkick.cpp \
     ai/tactic/tactictest.cpp \
     ai/play/playtest.cpp \
-    ai/skill/skillgoaliepenalty.cpp
+    ai/skill/skillgoaliepenalty.cpp \
+    geom/angle_deg.cpp \
+    geom/circle_2d.cpp \
+    geom/composite_region_2d.cpp \
+    geom/convex_hull.cpp \
+    geom/delaunay_triangulation.cpp \
+    geom/line_2d.cpp \
+    geom/matrix_2d.cpp \
+    geom/polygon_2d.cpp \
+    geom/ray_2d.cpp \
+    geom/rect_2d.cpp \
+    geom/sector_2d.cpp \
+    geom/segment_2d.cpp \
+    geom/triangle_2d.cpp \
+    geom/triangulation.cpp \
+    geom/vector_2d.cpp \
+    geom/voronoi_diagram_original.cpp \
+    geom/voronoi_diagram_triangle.cpp
 
 HEADERS  += \
     etc/settings.h \
     etc/logger.h \
     etc/constants.h \
     etc/base.h \
-    geom/voronoi_diagram_original.h \
-    geom/voronoi_diagram.h \
-    geom/vector_2d.h \
-    geom/triangle_2d.h \
-    geom/size_2d.h \
-    geom/segment_2d.h \
-    geom/sector_2d.h \
-    geom/region_2d.h \
-    geom/rect_2d.h \
-    geom/ray_2d.h \
-    geom/polygon_2d.h \
-    geom/matrix_2d.h \
-    geom/line_2d.h \
-    geom/geom.h \
-    geom/delaunay_triangulation.h \
-    geom/convex_hull.h \
-    geom/composite_region_2d.h \
-    geom/circle_2d.h \
-    geom/angle_deg.h \
     grSim/grSim_Replacement.pb.h \
     grSim/grSim_Packet.pb.h \
     grSim/grSim_Commands.pb.h \
@@ -278,7 +263,28 @@ HEADERS  += \
     ai/skill/skillkick.h \
     ai/tactic/tactictest.h \
     ai/play/playtest.h \
-    ai/skill/skillgoaliepenalty.h
+    ai/skill/skillgoaliepenalty.h \
+    geom/angle_deg.h \
+    geom/circle_2d.h \
+    geom/composite_region_2d.h \
+    geom/convex_hull.h \
+    geom/delaunay_triangulation.h \
+    geom/line_2d.h \
+    geom/matrix_2d.h \
+    geom/polygon_2d.h \
+    geom/ray_2d.h \
+    geom/rect_2d.h \
+    geom/region_2d.h \
+    geom/sector_2d.h \
+    geom/segment_2d.h \
+    geom/size_2d.h \
+    geom/triangle_2d.h \
+    geom/triangulation.h \
+    geom/vector_2d.h \
+    geom/voronoi_diagram.h \
+    geom/voronoi_diagram_original.h \
+    geom/voronoi_diagram_triangle.h \
+    geom/geom.h
 
 FORMS    +=	ui/mainwindow.ui
 

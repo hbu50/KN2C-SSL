@@ -35,7 +35,7 @@
 
 #include "delaunay_triangulation.h"
 
-#include <geom/triangle_2d.h>
+#include <rcsc/geom/triangle_2d.h>
 
 namespace rcsc {
 

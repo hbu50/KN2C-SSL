@@ -46,6 +46,4 @@
 #include <geom/triangle_2d.h>
 #include <geom/vector_2d.h>
 
-using namespace rcsc;
-
 #endif

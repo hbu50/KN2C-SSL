@@ -33,10 +33,10 @@
 
 #include "polygon_2d.h"
 
-#include <geom/vector_2d.h>
-#include <geom/segment_2d.h>
-#include <geom/rect_2d.h>
-#include <geom/line_2d.h>
+#include <rcsc/geom/vector_2d.h>
+#include <rcsc/geom/segment_2d.h>
+#include <rcsc/geom/rect_2d.h>
+#include <rcsc/geom/line_2d.h>
 
 #include <cmath>
 #include <cfloat>

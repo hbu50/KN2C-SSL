@@ -32,10 +32,10 @@
 #ifndef RCSC_GEOM_RECT2D_H
 #define RCSC_GEOM_RECT2D_H
 
-#include <geom/region_2d.h>
-#include <geom/size_2d.h>
-#include <geom/line_2d.h>
-#include <geom/vector_2d.h>
+#include <rcsc/geom/region_2d.h>
+#include <rcsc/geom/size_2d.h>
+#include <rcsc/geom/line_2d.h>
+#include <rcsc/geom/vector_2d.h>
 
 namespace rcsc {
 

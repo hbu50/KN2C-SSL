@@ -1,3 +1,4 @@
+AUTHORS
+========
 
-Faraz Fallahi    <fffaraz@gmail.com> 
-
+Faraz Fallahi	<fffaraz@gmail.com>

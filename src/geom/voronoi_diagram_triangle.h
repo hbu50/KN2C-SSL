@@ -1,14 +1,14 @@
 // -*-c++-*-
 
 /*!
-  \file voronoi_diagram_original.h
+  \file voronoi_diagram_triangle.h
   \brief 2D voronoi diagram Header File.
 */
 
 /*
  *Copyright:
 
- Copyright (C) Hidehisa AKIYAMA
+ Copyright (C) Hiroki Shimora
 
  This code is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
@@ -27,14 +27,13 @@
  *EndCopyright:
  */
 
-#ifndef RCSC_GEOM_VORONOI_DIAGRAM_ORIGINAL_H
-#define RCSC_GEOM_VORONOI_DIAGRAM_ORIGINAL_H
+#ifndef RCSC_GEOM_VORONOI_DIAGRAM_TRIANGLE_H
+#define RCSC_GEOM_VORONOI_DIAGRAM_TRIANGLE_H
 
 #include <rcsc/geom/vector_2d.h>
 #include <rcsc/geom/segment_2d.h>
 #include <rcsc/geom/ray_2d.h>
 #include <rcsc/geom/rect_2d.h>
-#include <rcsc/geom/delaunay_triangulation.h>
 
 #include <vector>
 #include <set>
@@ -42,10 +41,10 @@
 namespace rcsc {
 
 /*!
-  \class VoronoiDiagramOriginal
-  \brief 2D voronoi diagram class
+  \class VoronoiDiagramTriangle
+  \brief 2D voronoi diagram class usint triangle library
  */
-class VoronoiDiagramOriginal {
+class VoronoiDiagramTriangle {
 public:
     typedef std::set< Vector2D, Vector2D::XYCmp > Vector2DCont;
     typedef std::vector< Segment2D > Segment2DCont;
@@ -55,7 +54,8 @@ private:
 
     Rect2D * M_bounding_rect;
 
-    DelaunayTriangulation M_triangulation;
+    //! input points
+    std::vector< Vector2D > M_input_points;
 
     Vector2DCont M_vertices; //!< vertices of voronoi regions
     Segment2DCont M_segments; //!< edges of voronoi regions
@@ -65,18 +65,18 @@ public:
     /*!
       \brief create voronoi diagram handler
     */
-    VoronoiDiagramOriginal();
+    VoronoiDiagramTriangle();
 
     /*!
       \brief create voronoi diagram handler with points
       \param v array of input points
     */
-    VoronoiDiagramOriginal( const std::vector< Vector2D > & v );
+    VoronoiDiagramTriangle( const std::vector< Vector2D > & v );
 
     /*!
       \brief destructor.
      */
-    ~VoronoiDiagramOriginal();
+    ~VoronoiDiagramTriangle();
 
     /*!
       \brief set bounding rectangle.
@@ -90,7 +90,7 @@ public:
     */
     void addPoint( const Vector2D & p )
       {
-          M_triangulation.addVertex( p );
+          M_input_points.push_back( p );
       }
 
     /*!
@@ -99,7 +99,7 @@ public:
     */
     void addPoint( const std::vector< Vector2D > & v )
       {
-          M_triangulation.addVertices( v );
+          M_input_points.insert( M_input_points.end(), v.begin(), v.end() );
       }
 
     /*!
@@ -153,9 +153,9 @@ public:
       \return const reference to ray list
     */
     const Ray2DCont & rays() const
-    {
-        return M_rays;
-    }
+      {
+          return M_rays;
+      }
     const Ray2DCont & resultRays() const
       {
           return M_rays;

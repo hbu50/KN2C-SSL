@@ -4,7 +4,7 @@
 // http://geosoft.no/development/cppstyle.html
 
 
-#include <QtGui/QApplication>
+#include <QApplication>
 #include <signal.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -12,8 +12,6 @@
 #include "mainwindow.h"
 #include "soccer.h"
 using namespace std;
-
-// salam
 
 void SignalHandler(int)
 {
@@ -37,7 +35,7 @@ int main(int argc, char *argv[])
     cout << "KN2C Small Size League Robocup Team" << endl;
     cout << "K.N.Toosi University of Technology" << endl;
     cout << "Computer & Electrical Eng. Faculty" << endl;
-    cout << "Version 5.00" << endl;
+    cout << "Version 7.00" << endl;
     cout << endl;
 
     Soccer soccer;
