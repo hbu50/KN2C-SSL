@@ -78,10 +78,6 @@ SOURCES +=	main.cpp \
     grSim/grSim_Replacement.pb.cc \
     grSim/grSim_Packet.pb.cc \
     grSim/grSim_Commands.pb.cc \
-    qextserialport/serialport.cpp \
-    qextserialport/qextserialport.cpp \
-    qextserialport/qextserialenumerator_unix.cpp \
-    qextserialport/posix_qextserialport.cpp \
     ssl/sslreceiver.cpp \
     ssl/sslrefbox.cpp \
     ssl/sslvision.cpp \
@@ -176,10 +172,6 @@ HEADERS  += \
     grSim/grSim_Replacement.pb.h \
     grSim/grSim_Packet.pb.h \
     grSim/grSim_Commands.pb.h \
-    qextserialport/serialport.h \
-    qextserialport/qextserialport_global.h \
-    qextserialport/qextserialport.h \
-    qextserialport/qextserialenumerator.h \
     ssl/worldmodel.h \
     ssl/sslreceiver.h \
     ssl/sslrefbox.h \

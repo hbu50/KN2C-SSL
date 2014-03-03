@@ -3,9 +3,10 @@
 
 #include <QObject>
 #include <QTimer>
+#include <QSerialPort>
+
 #include "base.h"
 #include "constants.h"
-#include "serialport.h"
 #include "outputbuffer.h"
 
 class OutputBuffer;
