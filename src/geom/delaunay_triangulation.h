@@ -32,8 +32,8 @@
 #ifndef RCSC_GEOM_DELAUNAY_TRIANGULATION_H
 #define RCSC_GEOM_DELAUNAY_TRIANGULATION_H
 
-#include <rcsc/geom/rect_2d.h>
-#include <rcsc/geom/vector_2d.h>
+#include <geom/rect_2d.h>
+#include <geom/vector_2d.h>
 
 #include <boost/array.hpp>
 

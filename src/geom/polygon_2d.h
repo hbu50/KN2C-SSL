@@ -30,7 +30,7 @@
 #ifndef RCSC_GEOM_POLYGON2D_H
 #define RCSC_GEOM_POLYGON2D_H
 
-#include <rcsc/geom/region_2d.h>
+#include <geom/region_2d.h>
 
 #include <vector>
 

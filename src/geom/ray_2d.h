@@ -32,8 +32,8 @@
 #ifndef RCSC_GEOM_RAY2D_H
 #define RCSC_GEOM_RAY2D_H
 
-#include <rcsc/geom/line_2d.h>
-#include <rcsc/geom/vector_2d.h>
+#include <geom/line_2d.h>
+#include <geom/vector_2d.h>
 
 namespace rcsc {
 

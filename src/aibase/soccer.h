@@ -18,7 +18,6 @@
 #include "wpacket.h"
 #include "grsim.h"
 #include "outputbuffer.h"
-#include "scriptengine.h"
 #include "controller.h"
 #include "agent.h"
 #include "ai.h"

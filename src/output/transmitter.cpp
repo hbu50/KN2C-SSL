@@ -33,7 +33,7 @@ void Transmitter::sendPacket()
         //log+= "SeialData[" + QString::number(pck.size()) + "]: ";
         //log+= pck.toHex();
         //qDebug() << log;
-        _serialport.port->write(pck);
+        _serialport.write(pck);
 
 //        QByteArray debug;
 //        debug.append(QByteArray::fromHex("000102030405060708090a0b0c0d0e0f"));

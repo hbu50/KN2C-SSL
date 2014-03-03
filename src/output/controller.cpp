@@ -1,9 +1,8 @@
 #include "controller.h"
 #include "constants.h"
 #include <QTime>
-Controller::Controller(ScriptEngine *engine, QObject *parent) :
-    QObject(parent),
-    _engine(engine)
+Controller::Controller(QObject *parent) :
+    QObject(parent)
 {
     //qDebug() << "Controller Initialization...";
     // _engine->AddObject(_outbuffer, "outbuffer");
@@ -114,7 +113,7 @@ RobotSpeed Controller::calcRobotSpeed(ControllerData& data)
     tmp = PastDist[data.rid].length() - DistanceVector.length();
     if(fabs(tmp) > .0001 && DistanceVector.length()>.01 )
     {
-//        tmp= .15*  .001*err[data.rid]*(AGENT_TIMER/tmp) + 1*DistanceVector.length();//*a+DistanceVector.length();
+//        tmp= .15*  .001*err[data.rid]*(AGENT_TIMER/tmp) + 1*DistanceVector.length();// *a+DistanceVector.length();
 //        if (fabs(tmp)<100000 || fabs(tmp) < fabs(err[data.rid]))
 //            err[data.rid]=tmp;
 

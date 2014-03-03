@@ -30,9 +30,9 @@
 #ifndef RCSC_GEOM_CONVEX_HULL_H
 #define RCSC_GEOM_CONVEX_HULL_H
 
-#include <rcsc/geom/vector_2d.h>
-#include <rcsc/geom/segment_2d.h>
-#include <rcsc/geom/polygon_2d.h>
+#include <geom/vector_2d.h>
+#include <geom/segment_2d.h>
+#include <geom/polygon_2d.h>
 
 #include <vector>
 #include <set>

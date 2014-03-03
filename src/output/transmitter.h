@@ -18,7 +18,7 @@ public:
     explicit Transmitter(QString port, OutputBuffer* buffer, QObject *parent = 0);
 
 private:
-    SerialPort _serialport;
+    QSerialPort _serialport;
     QTimer _timer;
     bool _state;
     OutputBuffer* _buffer;

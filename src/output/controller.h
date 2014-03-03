@@ -5,12 +5,13 @@
 #include <QtCore>
 #include <QDebug>
 #include <QMap>
+#include <math.h>
+#include <cmath>
+
 #include "position.h"
-#include "scriptengine.h"
+#include "util.h"
 
 #define GRSIM true
-
-class ScriptEngine;
 
 class ControllerData : public QObject
 {
@@ -51,11 +52,10 @@ class Controller : public QObject
 {
     Q_OBJECT
 public:
-    explicit Controller(ScriptEngine* engine, QObject *parent = 0);
+    explicit Controller(QObject *parent = 0);
     ControllerResult calc(Position curpos, Position curvel, Position target, int rid, float fdest, float speed);
 
 private:
-    ScriptEngine* _engine;
     RobotSpeed calcRobotSpeed(ControllerData& data);
     MotorSpeed calcMotorSpeed3(RobotSpeed rs);
     MotorSpeed calcMotorSpeed4(RobotSpeed rs);

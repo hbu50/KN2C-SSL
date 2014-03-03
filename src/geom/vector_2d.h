@@ -32,7 +32,7 @@
 #ifndef RCSC_GEOM_VECTOR2D_H
 #define RCSC_GEOM_VECTOR2D_H
 
-#include <rcsc/geom/angle_deg.h>
+#include <geom/angle_deg.h>
 
 #include <functional>
 #include <iostream>

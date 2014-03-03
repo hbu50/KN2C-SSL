@@ -5,7 +5,6 @@
 #include <QObject>
 #include "constants.h"
 #include "agent.h"
-#include "scriptengine.h"
 #include "coach.h"
 
 class Agent;

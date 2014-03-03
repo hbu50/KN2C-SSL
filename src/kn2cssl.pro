@@ -96,7 +96,6 @@ SOURCES +=	main.cpp \
     output/transmitter.cpp \
     output/grsim.cpp \
     output/grpacket.cpp \
-    aibase/scriptengine.cpp \
     ssl/sslrefbox/game_state.cpp \
     ssl/sslvision/visionresult.cpp \
     ssl/mobileobject.cpp \
@@ -159,10 +158,7 @@ SOURCES +=	main.cpp \
     geom/sector_2d.cpp \
     geom/segment_2d.cpp \
     geom/triangle_2d.cpp \
-    geom/triangulation.cpp \
-    geom/vector_2d.cpp \
-    geom/voronoi_diagram_original.cpp \
-    geom/voronoi_diagram_triangle.cpp
+    geom/vector_2d.cpp
 
 HEADERS  += \
     etc/settings.h \
@@ -197,7 +193,6 @@ HEADERS  += \
     output/grsim.h \
     output/outputbuffer.h \
     output/grpacket.h \
-    aibase/scriptengine.h \
     ssl/sslvision/visionresult.h \
     ssl/sslvision/visionball.h \
     ssl/sslvision/visionrobot.h \
@@ -273,9 +268,6 @@ HEADERS  += \
     geom/triangle_2d.h \
     geom/triangulation.h \
     geom/vector_2d.h \
-    geom/voronoi_diagram.h \
-    geom/voronoi_diagram_original.h \
-    geom/voronoi_diagram_triangle.h \
     geom/geom.h
 
 FORMS    +=	ui/mainwindow.ui

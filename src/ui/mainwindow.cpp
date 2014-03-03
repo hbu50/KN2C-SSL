@@ -10,7 +10,7 @@ MainWindow::MainWindow(Soccer *soccer, QWidget *parent) :
     _updatetimer.setObjectName("updatetimer");
     _updatetimer.start(100);
     ui->setupUi(this);
-    ui->txtLog->append(SerialPort::ListPorts());
+    //ui->txtLog->append(SerialPort::ListPorts());
     _render = new RenderArea(soccer);
     ui->gridRender->addWidget(_render);
 }

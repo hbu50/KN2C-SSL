@@ -41,12 +41,8 @@ Soccer::Soccer(QObject *parent) :
     visionrecorder->Start();
     visiontracker->Start();
 
-    // script engine
-    scriptengine = new ScriptEngine();
-    scriptengine->AddObject(this, "sc");
-
     // controller
-    controller = new Controller(scriptengine);
+    controller = new Controller();
 
     // output buffer
     outputbuffer = new OutputBuffer;

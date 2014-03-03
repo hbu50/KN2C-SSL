@@ -32,8 +32,8 @@
 #ifndef RCSC_GEOM_MATRIX2D_H
 #define RCSC_GEOM_MATRIX2D_H
 
-#include <rcsc/geom/vector_2d.h>
-#include <rcsc/geom/angle_deg.h>
+#include <geom/vector_2d.h>
+#include <geom/angle_deg.h>
 
 #include <iostream>
 #include <cmath>
