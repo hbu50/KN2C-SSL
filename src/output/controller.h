@@ -7,22 +7,24 @@
 #include <QMap>
 #include <math.h>
 #include <cmath>
+using namespace std;
 
 #include "position.h"
 #include "util.h"
 
-#define GRSIM true
-
-class ControllerData : public QObject
+struct ControllerInput
 {
-    Q_OBJECT
-public:
-    Position curpos;
-    Position curvel;
-    Position target;
-    int rid;
-    float fdest;
-    float speed;
+    Position cur_pos;
+    Position cur_vel;
+
+    Position mid_pos;
+    Position mid_vel;
+
+    Position fin_pos;
+    Position fin_vel;
+
+    char angleMode;
+    double maxSpeed;
 };
 
 struct RobotSpeed
@@ -44,32 +46,24 @@ struct MotorSpeed
 struct ControllerResult
 {
     RobotSpeed rs;
-    MotorSpeed ms3;
-    MotorSpeed ms4;
+    MotorSpeed msR;
+    MotorSpeed msS;
 };
 
 class Controller : public QObject
 {
     Q_OBJECT
+
 public:
     explicit Controller(QObject *parent = 0);
-    ControllerResult calc(Position curpos, Position curvel, Position target, int rid, float fdest, float speed);
+    ControllerResult calc(ControllerInput &ci);
 
 private:
-    RobotSpeed calcRobotSpeed(ControllerData& data);
-    MotorSpeed calcMotorSpeed3(RobotSpeed rs);
-    MotorSpeed calcMotorSpeed4(RobotSpeed rs);
+    QTime timer;
 
-    int MAXMOTORSRPM;
-    float WHEELDIAMETER;
-    float ROBOTRADIUS;
-
-    QMap<int, double> err; //=1;
-    QMap<int, Vector2D> PastDist;
-
-signals:
-
-public slots:
+    RobotSpeed calcRobotSpeed(ControllerInput &ci);
+    MotorSpeed calcReal(RobotSpeed rs);
+    MotorSpeed calcSimul(RobotSpeed rs);
 
 };
 

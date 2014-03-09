@@ -22,20 +22,19 @@ QByteArray WPacket::GetPacket()
     //for(int i=0; i<_rdata.count(); ++i)
     //    rd.append((const char*)&(_rdata[i]), 8); //sizeof(_rdata[i]));
     foreach(const RobotData& itr, _rdata)
-        rd.append((const char*)&(itr), 8); //sizeof(i));
+        rd.append((const char*)&(itr), 8); //sizeof(RobotData);
 
     unsigned char checksum=0;
     for(int i=0; i<rd.size(); ++i)
         checksum += rd.at(i);
 
     SendPacketHeader h;
-    h.NOR = _rdata.count();
-    h.SIB = 2 + 3 + rd.size() + 1; //RobotData size + 3 byte packet header + 2 byte SOP + 1 byte EOP
+    h.SIB = (2 + 1 + 1) + rd.size() + 1; //RobotData size + 3 byte packet header + 2 byte SOP + 1 byte EOP
     h.CHK = checksum;
 
     QByteArray ans;
     ans.append(WP_SOP);
-    ans.append((const char*)&h, 3); //sizeof(h));
+    ans.append((const char*)&h, 2); //sizeof(h));
     ans.append(rd);
     ans.append(WP_EOP);
 

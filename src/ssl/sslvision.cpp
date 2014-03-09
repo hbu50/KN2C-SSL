@@ -23,8 +23,6 @@ SSLVision::SSLVision(QString ip, int port, TeamColorType color, TeamSideType sid
 
 void SSLVision::readPendingPacket(QByteArray data, QString ip, int port)
 {
-    qDebug() << "!!!!!!!!!!!";
-
     // check for server ip (& port)
     if(ip=="" && port==0) return;
 
@@ -63,8 +61,9 @@ void SSLVision::parse(SSL_DetectionFrame &pck)
     }
 
     // update vision frame
-//    _vframe[cid].clear();
 //    _vframe[cid].frame_number =  pck.frame_number();
+
+    vector<Position> pt;
 
     // Team side Coefficient
     float ourSide = (_side == SIDE_RIGHT)? -1.0f : 1.0f;
@@ -80,19 +79,25 @@ void SSLVision::parse(SSL_DetectionFrame &pck)
             {
                 Position tp;
                 tp.loc = Vector2D(b.x()*ourSide, b.y()*ourSide);
-                _wm->ball.seenAt(tp, time, cid);
+                pt.push_back(tp);
             }
     }
+    _wm->ball.seenAt(pt, time, cid);
+    pt.clear();
 
     if(_color == COLOR_BLUE)
     {
         APPEND_ROBOTS(blue, our);
+        pt.clear();
         APPEND_ROBOTS(yellow, opp);
+        pt.clear();
     }
     else // _color == COLOR_YELLOW
     {
         APPEND_ROBOTS(yellow, our);
+        pt.clear();
         APPEND_ROBOTS(blue, opp);
+        pt.clear();
     }
 
 }

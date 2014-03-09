@@ -2,11 +2,16 @@
 
 Transmitter::Transmitter(QString port, OutputBuffer* buffer, QObject *parent) :
     QObject(parent),
-    _serialport(port, this),
+    _serialport(this),
     _timer(this),
     _buffer(buffer)
 {
     qDebug() << "Transmitter Initialization...";
+
+    _serialport.setPortName(port);
+    _serialport.open(QIODevice::ReadWrite);
+    qDebug() << _serialport.errorString();
+
     _timer.setInterval(TRANSMITTER_TIMER);
     connect(&_timer,SIGNAL(timeout()), this, SLOT(sendPacket()));
     qDebug() << "Port: " << port;
@@ -29,10 +34,10 @@ void Transmitter::sendPacket()
     if(_state)
     {
         QByteArray pck = _buffer->wpck.GetPacket();
-        //QString log;
-        //log+= "SeialData[" + QString::number(pck.size()) + "]: ";
-        //log+= pck.toHex();
-        //qDebug() << log;
+        QString log;
+        log+= "SerialData[" + QString::number(pck.size()) + "]: ";
+        log+= pck.toHex();
+        qDebug() << log;
         _serialport.write(pck);
 
 //        QByteArray debug;

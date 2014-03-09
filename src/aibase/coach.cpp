@@ -20,6 +20,8 @@ Coach::Coach(WorldModel *wm, QMap<int,Agent*> &agents, QObject *parent) :
 
 void Coach::timer_timeout()
 {
+
+    return;
     //_agents[0]->AssignSkill(new SkillBallTracking());
     //_agents[1]->AssignSkill(new SkillMilad());
     //_agents[2]->AssignSkill(new SkillGKP());

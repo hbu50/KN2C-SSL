@@ -38,14 +38,14 @@ void SSLRefBox::readPendingPacket(QByteArray data, QString ip, int port)
 
 void SSLRefBox::parse(GameStatePacket pck)
 {
-    bool ball_moved = (_lastBall.pos.loc - _wm->ball.pos.loc).length()>_ball_min;
+    bool ball_moved = (_lastBallpos.loc - _wm->ball.pos.loc).length()>_ball_min;
     _wm->cmgs.transition(pck.cmd, ball_moved);
     updategs(pck.cmd, ball_moved);
 
     if(pck.cmd_counter != _lastCMDCounter) // new cmd
     {
         // save ball position
-        _lastBall = _wm->ball;
+        _lastBallpos = _wm->ball.pos;
         // update command counter
         _lastCMDCounter = pck.cmd_counter;
         // send signal

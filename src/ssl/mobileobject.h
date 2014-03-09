@@ -2,20 +2,32 @@
 #define MOBILEOBJECT_H
 
 #include <QDebug>
+#include <QTimer>
+#include <vector>
+using namespace std;
 
 #include "geom.h"
 #include "position.h"
 
-class MobileObject
+class MobileObject : public QObject
 {
+    Q_OBJECT
+
 public:
     explicit MobileObject();
+    void seenAt(vector<Position> p, double t, int camera);
+
     double time;
     bool isValid;
     Position pos;
     Position vel;
 
-    void seenAt(Position p, double t, int camera);
+private:
+    QTimer timer;
+    int interval;
+
+private slots:
+    void timer_timeout();
 
 };
 

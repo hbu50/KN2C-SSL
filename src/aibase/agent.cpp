@@ -46,8 +46,8 @@ void Agent::SendCommand(RobotCommand rc)
     reRD.M3 = ctrlres.ms3.M3;
     reRD.M4 = 0; // we have 3 motors!
     reRD.KCK = (rc.kickspeedx>0)?1:0;
-    reRD.FLG = _FLG;
-    reRD.ASK = _ASK;
+    //reRD.FLG = _FLG;
+    //reRD.ASK = _ASK;
     _outputbuffer->wpck.AddRobot(reRD);
     // grSim Packet
     grRobotData grRD;
@@ -87,8 +87,8 @@ void Agent::Halt()
     reRD.M3 = 0;
     reRD.M4 = 0;
     reRD.KCK = 0;
-    reRD.FLG = 0;
-    reRD.ASK = 0;
+    //reRD.FLG = 0;
+    //reRD.ASK = 0;
     _outputbuffer->wpck.AddRobot(reRD);
     // grSim Packet
     grRobotData grRD;

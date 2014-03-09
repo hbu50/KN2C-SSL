@@ -22,7 +22,7 @@ private:
     unsigned char _lastCMDCounter;
     float _ball_min;
     WorldModel* _wm;
-    Ball _lastBall;
+    Position _lastBallpos;
     void parse(GameStatePacket pck);
     void updategs(char cmd, bool ball_moved);
 

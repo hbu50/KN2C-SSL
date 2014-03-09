@@ -19,7 +19,7 @@ struct SendPacketHeader
 {
     //unsigned short SOP;	// start of packet (2 bytes)
     unsigned char SIB;	// size in bytes
-    unsigned char NOR;	// number of robots
+    //unsigned char NOR;	// number of robots
     unsigned char CHK;	// ckeck sum
     //RobotData R[6];
     //unsigned char EOP;	// end of packet
@@ -28,13 +28,12 @@ struct SendPacketHeader
 struct RobotData
 {
     unsigned char RID;	// robot id
-    signed char M1;	// motor 1
-    signed char M2;	// motor 2
-    signed char M3;	// motor 3
-    signed char M4;	// motor 4
+    signed short int M1;	// motor 1
+    signed short int M2;	// motor 2
+    signed short int M3;	// motor 3
+    signed short int M4;	// motor 4
     unsigned char KCK;	// kick options
-    unsigned char FLG;	// flags
-    unsigned char ASK;	// ask
+    unsigned char CHP;	// CHIP & SPIN   #SCCCCCCC
 
     RobotData() :
         RID(0xFF),
@@ -43,8 +42,7 @@ struct RobotData
         M3(0),
         M4(0),
         KCK(0),
-        FLG(0),
-        ASK(0)
+        CHP(0)
     { }
 };
 #pragma pack(pop)   /* restore original alignment from stack */
