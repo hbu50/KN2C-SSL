@@ -32,12 +32,8 @@ Soccer::Soccer(QObject *parent) :
     sslvision->Start();
     sslrefbox->Start();
 
-    // controller
-    controller = new Controller();
-
     // output buffer
     outputbuffer = new OutputBuffer;
-    outputbuffer->ctrl=controller;
 
     // grSim
     if(gamemode==MODE_SIMULATION)
@@ -54,6 +50,6 @@ Soccer::Soccer(QObject *parent) :
     }
 
     // AI
-    ai = new AI(wm, scriptengine, outputbuffer, this);
+    ai = new AI(wm, outputbuffer, this);
     ai->Start();
 }

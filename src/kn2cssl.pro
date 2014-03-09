@@ -65,16 +65,8 @@ INCLUDEPATH += geom
 INCLUDEPATH += output
 INCLUDEPATH += grSim
 INCLUDEPATH += ai
-INCLUDEPATH += aibase
-INCLUDEPATH += ai/skill
-INCLUDEPATH += ai/role
-INCLUDEPATH += ai/tactic
-INCLUDEPATH += ai/play
-INCLUDEPATH += ai/navigation
-INCLUDEPATH += ai/strategy
 
 SOURCES +=	main.cpp \
-    etc/logger.cpp \
     grSim/grSim_Replacement.pb.cc \
     grSim/grSim_Packet.pb.cc \
     grSim/grSim_Commands.pb.cc \
@@ -88,9 +80,8 @@ SOURCES +=	main.cpp \
     ui/mainwindow.cpp \
     ui/renderarea.cpp \
     util/fpscounter.cpp \
-    aibase/soccer.cpp \
+    ai/soccer.cpp \
     ssl/worldmodel.cpp \
-    aibase/agent.cpp \
     output/wpacket.cpp \
     output/transmitter.cpp \
     output/grsim.cpp \
@@ -100,48 +91,7 @@ SOURCES +=	main.cpp \
     ssl/ball.cpp \
     ssl/robot.cpp \
     output/controller.cpp \
-    aibase/ai.cpp \
-    aibase/statemachine.cpp \
-    aibase/navigation.cpp \
-    aibase/skill.cpp \
-    ai/skill/skillnull.cpp \
-    ai/skill/skillballtracking.cpp \
-    aibase/coach.cpp \
-    ai/skill/skillgotoposition.cpp \
-    aibase/tactic.cpp \
-    aibase/play.cpp \
-    aibase/strategy.cpp \
-    ai/strategy/strategydefault.cpp \
-    ai/navigation/navigationdefault.cpp \
-    aibase/role.cpp \
-    ai/skill/skillcircle.cpp \
-    ai/role/rolegoalie.cpp \
-    ai/tactic/tacticnull.cpp \
-    ai/role/rolenull.cpp \
-    ai/play/playnull.cpp \
-    ai/play/playstop.cpp \
-    ai/knowledge.cpp \
-    ai/tactic/tacticstop.cpp \
-    ai/tactic/tacticdefend.cpp \
-    ai/skill/skillgoalie.cpp \
-    ai/tactic/tacticgoalie.cpp \
-    ai/role/roledefender.cpp \
-    ai/play/playhalt.cpp \
-    ai/play/playkickoffour.cpp \
-    ai/play/playkickoffopp.cpp \
-    ai/play/playpenaltyour.cpp \
-    ai/play/playpenaltyopp.cpp \
-    ai/play/playgameon.cpp \
-    ai/play/playfreekickour.cpp \
-    ai/play/playfreekickopp.cpp \
-    ai/role/roleattacker.cpp \
-    ai/tactic/tacticattack.cpp \
-    ai/tactic/tacticblock.cpp \
-    ai/skill/skillwait.cpp \
-    ai/skill/skillkick.cpp \
-    ai/tactic/tactictest.cpp \
-    ai/play/playtest.cpp \
-    ai/skill/skillgoaliepenalty.cpp \
+    ai/ai.cpp \
     geom/angle_deg.cpp \
     geom/circle_2d.cpp \
     geom/composite_region_2d.cpp \
@@ -159,7 +109,6 @@ SOURCES +=	main.cpp \
 
 HEADERS  += \
     etc/settings.h \
-    etc/logger.h \
     etc/constants.h \
     etc/base.h \
     grSim/grSim_Replacement.pb.h \
@@ -192,55 +141,8 @@ HEADERS  += \
     ssl/robot.h \
     output/controller.h \
     ssl/position.h \
-    aibase/ai.h \
-    aibase/statemachine.h \
-    aibase/navigation.h \
-    aibase/skill.h \
-    aibase/robotcommand.h \
-    ai/skill/skillnull.h \
-    ai/skill/skillballtracking.h \
-    aibase/coach.h \
-    ai/skill/skillgotoposition.h \
-    aibase/tactic.h \
-    ai/skills.h \
-    ai/tactics.h \
-    aibase/play.h \
-    ai/plays.h \
-    ai/roles.h \
-    aibase/strategy.h \
-    ai/strategy/strategydefault.h \
-    ai/navigation/navigationdefault.h \
-    aibase/role.h \
-    ai/strategies.h \
-    ai/skill/skillcircle.h \
-    ai/role/rolegoalie.h \
-    ai/tactic/tacticnull.h \
-    ai/role/rolenull.h \
-    ai/play/playnull.h \
-    ai/play/playstop.h \
-    ai/knowledge.h \
-    ai/tactic/tacticstop.h \
-    ai/tactic/tacticdefend.h \
-    ai/skill/skillgoalie.h \
-    ai/tactic/tacticgoalie.h \
-    ai/role/roledefender.h \
-    ai/play/playhalt.h \
-    ai/play/playkickoffour.h \
-    ai/play/playkickoffopp.h \
-    ai/play/playpenaltyour.h \
-    ai/play/playpenaltyopp.h \
-    ai/play/playgameon.h \
-    ai/play/playfreekickour.h \
-    ai/play/playfreekickopp.h \
-    ai/role/roleattacker.h \
-    ai/tactic/tacticattack.h \
-    ai/tactic/tacticblock.h \
-    ai/skill/skillwait.h \
-    aibase/strategyresult.h \
-    ai/skill/skillkick.h \
-    ai/tactic/tactictest.h \
-    ai/play/playtest.h \
-    ai/skill/skillgoaliepenalty.h \
+    ai/ai.h \
+    ai/robotcommand.h \
     geom/angle_deg.h \
     geom/circle_2d.h \
     geom/composite_region_2d.h \
@@ -258,7 +160,8 @@ HEADERS  += \
     geom/triangle_2d.h \
     geom/triangulation.h \
     geom/vector_2d.h \
-    geom/geom.h
+    geom/geom.h \
+    ai/soccer.h
 
 FORMS    +=	ui/mainwindow.ui
 

@@ -7,6 +7,7 @@
 #include <QDebug>
 #include <QTimer>
 #include <QMap>
+
 #include "settings.h"
 #include "transmitter.h"
 #include "worldmodel.h"
@@ -15,16 +16,7 @@
 #include "wpacket.h"
 #include "grsim.h"
 #include "outputbuffer.h"
-#include "controller.h"
-#include "agent.h"
 #include "ai.h"
-
-class ScriptEngine;
-class Controller;
-class Transmitter;
-class grSim;
-class Agent;
-class AI;
 
 class Soccer : public QObject
 {
@@ -40,14 +32,7 @@ public:
     OutputBuffer* outputbuffer;
     Transmitter* transmitter;
     grSim* grsim;
-    ScriptEngine* scriptengine;
-    Controller* controller;
     AI *ai;
-
-
-signals:
-
-public slots:
 
 };
 

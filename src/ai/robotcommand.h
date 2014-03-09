@@ -5,17 +5,19 @@
 
 struct RobotCommand
 {
-    Position TargetPos;
-    Position FinalPos;
-    float Speed;
-    // Kick ...
+    Position fin_pos;
+    Position fin_vel;
+
+    char angleMode;
+    double maxSpeed;
+
     float kickspeedx;
     float kickspeedz;
+
     RobotCommand()
     {
-        TargetPos=Position();
-        FinalPos=Position();
-        Speed=0;
+        angleMode=0;
+        maxSpeed=0;
         kickspeedx=0;
         kickspeedz=0;
     }
