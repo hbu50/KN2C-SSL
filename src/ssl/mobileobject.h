@@ -1,6 +1,8 @@
 #ifndef MOBILEOBJECT_H
 #define MOBILEOBJECT_H
 
+#include <QDebug>
+
 #include "geom.h"
 #include "position.h"
 
@@ -12,6 +14,9 @@ public:
     bool isValid;
     Position pos;
     Position vel;
+
+    void seenAt(Position p, double t, int camera);
+
 };
 
 #endif // MOBILEOBJECT_H

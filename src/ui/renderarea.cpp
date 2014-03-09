@@ -41,26 +41,26 @@ void RenderArea::paintEvent(QPaintEvent *)
 
     painter.setBrush(*brush_yrobot);
     for(int i=0;i<12;i++)
-        if(_sc->vr->oppRobot[i].isValid)
+        if(_sc->wm->oppRobot[i].isValid)
         {
-            painter.drawChord(_sc->vr->oppRobot[i].pos.x/WORLD_SCALE-ROBOT_R,-_sc->vr->oppRobot[i].pos.y/WORLD_SCALE-ROBOT_R,ROBOT_D,ROBOT_D,ANGLE_TO_CHORD(_sc->vr->oppRobot[i].angle));
-            painter.drawText(_sc->vr->oppRobot[i].pos.x/WORLD_SCALE-ROBOT_R,-_sc->vr->oppRobot[i].pos.y/WORLD_SCALE-ROBOT_R,ROBOT_D,ROBOT_D,Qt::AlignCenter,QString::number(_sc->vr->oppRobot[i].id));
+            painter.drawChord(_sc->wm->oppRobot[i].pos.loc.x/WORLD_SCALE-ROBOT_R,-_sc->wm->oppRobot[i].pos.loc.y/WORLD_SCALE-ROBOT_R,ROBOT_D,ROBOT_D,ANGLE_TO_CHORD(_sc->wm->oppRobot[i].pos.dir));
+            painter.drawText(_sc->wm->oppRobot[i].pos.loc.x/WORLD_SCALE-ROBOT_R,-_sc->wm->oppRobot[i].pos.loc.y/WORLD_SCALE-ROBOT_R,ROBOT_D,ROBOT_D,Qt::AlignCenter,QString::number(_sc->wm->oppRobot[i].id));
         }
 
     painter.setBrush(*brush_brobot);
     for(int i=0;i<12;i++)
-        if(_sc->vr->ourRobot[i].isValid)
+        if(_sc->wm->ourRobot[i].isValid)
         {
-            painter.drawChord(_sc->vr->ourRobot[i].pos.x/WORLD_SCALE-ROBOT_R,-_sc->vr->ourRobot[i].pos.y/WORLD_SCALE-ROBOT_R,ROBOT_D,ROBOT_D,ANGLE_TO_CHORD(_sc->vr->ourRobot[i].angle));
-            painter.drawText(_sc->vr->ourRobot[i].pos.x/WORLD_SCALE-ROBOT_R,-_sc->vr->ourRobot[i].pos.y/WORLD_SCALE-ROBOT_R,ROBOT_D,ROBOT_D,Qt::AlignCenter,QString::number(_sc->vr->ourRobot[i].id));
+            painter.drawChord(_sc->wm->ourRobot[i].pos.loc.x/WORLD_SCALE-ROBOT_R,-_sc->wm->ourRobot[i].pos.loc.y/WORLD_SCALE-ROBOT_R,ROBOT_D,ROBOT_D,ANGLE_TO_CHORD(_sc->wm->ourRobot[i].pos.dir));
+            painter.drawText(_sc->wm->ourRobot[i].pos.loc.x/WORLD_SCALE-ROBOT_R,-_sc->wm->ourRobot[i].pos.loc.y/WORLD_SCALE-ROBOT_R,ROBOT_D,ROBOT_D,Qt::AlignCenter,QString::number(_sc->wm->ourRobot[i].id));
         }
 
     // Draw Ball
-    if(_sc->vr->ball.isValid)
+    if(_sc->wm->ball.isValid)
     {
         painter.setPen(QColor::fromRgb(200,100,0));
         painter.setBrush(*brush_ball);
-        painter.drawEllipse(QPoint(_sc->vr->ball.pos.x/WORLD_SCALE,-_sc->vr->ball.pos.y/WORLD_SCALE),BALL_R,BALL_R);
+        painter.drawEllipse(QPoint(_sc->wm->ball.pos.loc.x/WORLD_SCALE,-_sc->wm->ball.pos.loc.y/WORLD_SCALE),BALL_R,BALL_R);
     }
     // TEST
 

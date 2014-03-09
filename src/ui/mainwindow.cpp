@@ -24,9 +24,9 @@ void MainWindow::on_updatetimer_timeout()
 {
     ui->txtRefreeSpeed->setText(QString::number(sc->sslvision->FPS()));
     ui->txtVisionSpeed->setText(QString::number(sc->sslrefbox->FPS()));
-    ui->txtRecordSpeed->setText(QString::number(sc->visionrecorder->FPS()));
+    ui->txtRecordSpeed->setText("N/A");
     ui->txtTime->setText(QString::number((sc->wm->time)));
-    ui->txtTimeBall->setText(QString::number(sc->vr->ball.time));
+    ui->txtTimeBall->setText("N/A");
 
     QString refgs = QString("") + sc->wm->refgs.cmd +
             ":" +QString::number(sc->wm->refgs.cmd_counter) +

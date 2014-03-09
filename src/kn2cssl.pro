@@ -90,18 +90,15 @@ SOURCES +=	main.cpp \
     util/fpscounter.cpp \
     aibase/soccer.cpp \
     ssl/worldmodel.cpp \
-    ssl/visionrecorder.cpp \
     aibase/agent.cpp \
     output/wpacket.cpp \
     output/transmitter.cpp \
     output/grsim.cpp \
     output/grpacket.cpp \
     ssl/sslrefbox/game_state.cpp \
-    ssl/sslvision/visionresult.cpp \
     ssl/mobileobject.cpp \
     ssl/ball.cpp \
     ssl/robot.cpp \
-    ssl/visiontracker.cpp \
     output/controller.cpp \
     aibase/ai.cpp \
     aibase/statemachine.cpp \
@@ -174,7 +171,6 @@ HEADERS  += \
     ssl/sslrefbox/ref_protocol.h \
     ssl/sslrefbox/game_state.h \
     ssl/sslrefbox/commands.h \
-    ssl/sslvision/visionframe.h \
     ssl/sslvision.h \
     ssl/sslvision/messages/messages_robocup_ssl_wrapper.pb.h \
     ssl/sslvision/messages/messages_robocup_ssl_refbox_log.pb.h \
@@ -184,22 +180,16 @@ HEADERS  += \
     ui/renderarea.h \
     util/util.h \
     util/fpscounter.h \
-    ssl/sslvision/visionobject.h \
     aibase/soccer.h \
-    ssl/visionrecorder.h \
     aibase/agent.h \
     output/wpacket.h \
     output/transmitter.h \
     output/grsim.h \
     output/outputbuffer.h \
     output/grpacket.h \
-    ssl/sslvision/visionresult.h \
-    ssl/sslvision/visionball.h \
-    ssl/sslvision/visionrobot.h \
     ssl/mobileobject.h \
     ssl/ball.h \
     ssl/robot.h \
-    ssl/visiontracker.h \
     output/controller.h \
     ssl/position.h \
     aibase/ai.h \

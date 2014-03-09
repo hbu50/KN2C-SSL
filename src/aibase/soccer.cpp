@@ -16,7 +16,6 @@ Soccer::Soccer(QObject *parent) :
     QString sside = s.Get("Team","Side");
     TeamSideType tside = (sside=="Right")?SIDE_RIGHT:SIDE_LEFT;
     CameraConfigType tcam = (CameraConfigType)s.Get("VisionConfig","UsingCameras").toInt();
-    int recordlimit = s.Get("VisionConfig","MaxRecordBuffer").toInt();
     QString simip = s.Get("grSim", "CommandIP");
     int simport = s.Get("grSim", "CommandPort").toInt();
     QString serialport = s.Get("Transmitter","SerialPort");
@@ -27,19 +26,11 @@ Soccer::Soccer(QObject *parent) :
     qDebug() << "Game mode: " << gm << "\n";
 
     // Vison & referee
-    vr = new VisionResult();
     wm = new WorldModel();
-    sslvision = new SSLVision(vip, vport, tcolor, tside, tcam, vr);
+    sslvision = new SSLVision(vip, vport, tcolor, tside, tcam, wm);
     sslrefbox = new SSLRefBox(rip, rport, tcolor, ball_dist, wm);
     sslvision->Start();
     sslrefbox->Start();
-    // Vision Recorder & Vision Tracker
-    visionrecorder = new VisionRecorder(recordlimit, wm);
-    visiontracker = new VisionTracker(vr, wm, visionrecorder);
-    connect(visiontracker, SIGNAL(newWorldModel()), visionrecorder, SLOT(newWorldModel()));
-    connect(sslvision, SIGNAL(newVisionResult()), visiontracker, SLOT(newVisionResult()));
-    visionrecorder->Start();
-    visiontracker->Start();
 
     // controller
     controller = new Controller();

@@ -9,12 +9,9 @@
 #include <QMap>
 #include "settings.h"
 #include "transmitter.h"
-#include "visionresult.h"
-#include "visiontracker.h"
 #include "worldmodel.h"
 #include "sslrefbox.h"
 #include "sslvision.h"
-#include "visionrecorder.h"
 #include "wpacket.h"
 #include "grsim.h"
 #include "outputbuffer.h"
@@ -37,11 +34,8 @@ public:
 
 //private:
     GameModeType gamemode;
-    VisionResult* vr;
     WorldModel* wm;
-    VisionTracker* visiontracker;
     SSLVision* sslvision;
-    VisionRecorder* visionrecorder;
     SSLRefBox* sslrefbox;
     OutputBuffer* outputbuffer;
     Transmitter* transmitter;
