@@ -7,6 +7,7 @@
 #include "base.h"
 #include "ball.h"
 #include "robot.h"
+#include "agent.h"
 #include "geom.h"
 #include "game_state.h"
 #include "ref_protocol.h"
@@ -14,10 +15,10 @@
 class WorldModel
 {
 public:
-    explicit WorldModel();
+    explicit WorldModel(OutputBuffer *outputBuffer);
     double time;
     Ball ball;
-    Robot ourRobot[PLAYERS_MAX_NUM];
+    Agent ourRobot[PLAYERS_MAX_NUM];
     Robot oppRobot[PLAYERS_MAX_NUM];
     GameStatePacket refgs;
     GameStateType gs;

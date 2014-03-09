@@ -25,15 +25,17 @@ Soccer::Soccer(QObject *parent) :
     gamemode = (gm=="Simulation")?MODE_SIMULATION:MODE_REAL;
     qDebug() << "Game mode: " << gm << "\n";
 
+    // output buffer
+    outputbuffer = new OutputBuffer;
+
     // Vison & referee
-    wm = new WorldModel();
+    wm = new WorldModel(outputbuffer);
     sslvision = new SSLVision(vip, vport, tcolor, tside, tcam, wm);
     sslrefbox = new SSLRefBox(rip, rport, tcolor, ball_dist, wm);
     sslvision->Start();
     sslrefbox->Start();
 
-    // output buffer
-    outputbuffer = new OutputBuffer;
+
 
     // grSim
     if(gamemode==MODE_SIMULATION)

@@ -1,6 +1,6 @@
 #include "worldmodel.h"
 
-WorldModel::WorldModel()
+WorldModel::WorldModel(OutputBuffer *outputBuffer)
 {
     time=0;
     refgs.cmd=0;
@@ -9,7 +9,8 @@ WorldModel::WorldModel()
 
     for(int i=0; i<PLAYERS_MAX_NUM; i++)
     {
-        ourRobot[i].id = i;
-        oppRobot[i].id = i;
+        ourRobot[i].setID(i);
+        ourRobot[i].setOutputBuffer(outputBuffer);
+        ourRobot[i].setWorldModel(this);
     }
 }

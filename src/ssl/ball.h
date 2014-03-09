@@ -5,6 +5,8 @@
 
 class Ball : public MobileObject
 {
+    Q_OBJECT
+
 public:
     explicit Ball();
 
