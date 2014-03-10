@@ -83,21 +83,16 @@ void SSLVision::parse(SSL_DetectionFrame &pck)
             }
     }
     _wm->ball.seenAt(pt, time, cid);
-    pt.clear();
 
     if(_color == COLOR_BLUE)
     {
         APPEND_ROBOTS(blue, our);
-        pt.clear();
         APPEND_ROBOTS(yellow, opp);
-        pt.clear();
     }
     else // _color == COLOR_YELLOW
     {
         APPEND_ROBOTS(yellow, our);
-        pt.clear();
         APPEND_ROBOTS(blue, opp);
-        pt.clear();
     }
 
 }

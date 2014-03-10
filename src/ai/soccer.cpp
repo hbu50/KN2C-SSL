@@ -35,8 +35,6 @@ Soccer::Soccer(QObject *parent) :
     sslvision->Start();
     sslrefbox->Start();
 
-
-
     // grSim
     if(gamemode==MODE_SIMULATION)
     {

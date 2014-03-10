@@ -21,8 +21,8 @@ void MobileObject::seenAt(vector<Position> p, double t, int camera)
     isValid = true;
     timer.start(interval);
 
-    int min_i = -1;
-    double min_d = 1000000000;
+    int min_i = 0;
+    double min_d = (pos.loc - p[0].loc).length2();
 
     for(size_t i=0; i< p.size(); i++)
     {
@@ -34,7 +34,6 @@ void MobileObject::seenAt(vector<Position> p, double t, int camera)
         }
     }
 
-    if(min_i==-1) qDebug() << "!!! MIN_I == -1 !!!";
     pos.loc = pos.loc + (p[min_i].loc - pos.loc) * 0.6;
     pos.dir = pos.dir + (p[min_i].dir - pos.dir) * 0.8;
 }

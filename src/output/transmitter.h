@@ -4,6 +4,8 @@
 #include <QObject>
 #include <QTimer>
 #include <QSerialPort>
+#include <iostream>
+using namespace std;
 
 #include "base.h"
 #include "constants.h"

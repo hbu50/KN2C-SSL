@@ -41,6 +41,7 @@ private slots:
 #define APPEND_ROBOTS(__COLOR__,__TEAM__) \
 for (int i=0; i<pck.robots_##__COLOR__##_size(); ++i) \
 { \
+    pt.clear(); \
     int rid = pck.robots_##__COLOR__(i).robot_id(); \
     if ((pck.robots_##__COLOR__(i).has_orientation())&&(pck.robots_##__COLOR__(i).has_confidence())&&(pck.robots_##__COLOR__(i).confidence()>MIN_CONF)&&(fabs(pck.robots_##__COLOR__(i).x())<FIELD_MAX_X)&&(fabs(pck.robots_##__COLOR__(i).y())<FIELD_MAX_Y)) \
     { \

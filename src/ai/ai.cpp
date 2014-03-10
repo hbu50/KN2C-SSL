@@ -26,6 +26,6 @@ void AI::timer_timeout()
 {
     RobotCommand rc;
     rc.fin_pos.loc = {0,0};
-    rc.maxSpeed = 1;
+    rc.maxSpeed = 5;
     wm->ourRobot[0].SendCommand(rc);
 }

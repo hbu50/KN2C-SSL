@@ -9,8 +9,12 @@ Transmitter::Transmitter(QString port, OutputBuffer* buffer, QObject *parent) :
     qDebug() << "Transmitter Initialization...";
 
     _serialport.setPortName(port);
-    _serialport.setBaudRate(QSerialPort::Baud38400);
     _serialport.open(QIODevice::ReadWrite);
+    _serialport.setBaudRate(QSerialPort::Baud19200);
+    _serialport.setDataBits(QSerialPort::Data8);
+    _serialport.setStopBits(QSerialPort::OneStop);
+    _serialport.setFlowControl(QSerialPort::NoFlowControl);
+    _serialport.setParity(QSerialPort::NoParity);
     qDebug() << _serialport.errorString();
 
     _timer.setInterval(TRANSMITTER_TIMER);
@@ -58,7 +62,12 @@ void Transmitter::sendPacket()
         log+= pck.mid(14,1).toHex();
         log+= " ";
         log+= pck.mid(15,1).toHex();
-        qDebug() << log;
+        if(pck.size() > 16) log+= " ...";
+        log+= "\n";
+
+        cout << log.toStdString();
+        cout.flush();
+
         _serialport.write(pck);
 
 //        QByteArray debug;
