@@ -29,6 +29,10 @@ void Agent::SendCommand(RobotCommand rc)
     ControllerInput ci;
     ci.cur_pos = mypos;
     ci.cur_vel = myvel;
+
+    ci.fin_pos = rc.fin_pos;
+    ci.maxSpeed = rc.maxSpeed;
+
     ControllerResult ctrlres = ctrl.calc(ci);
 
     // Real Game Packet

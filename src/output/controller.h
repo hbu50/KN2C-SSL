@@ -61,7 +61,10 @@ public:
 private:
     QTime timer;
 
-    RobotSpeed calcRobotSpeed(ControllerInput &ci);
+    RobotSpeed calcRobotSpeed_main(ControllerInput &ci);
+    RobotSpeed calcRobotSpeed_adjt(ControllerInput &ci);
+    RobotSpeed calcRobotSpeed_test(ControllerInput &ci);
+
     MotorSpeed calcReal(RobotSpeed rs);
     MotorSpeed calcSimul(RobotSpeed rs);
 

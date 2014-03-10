@@ -19,10 +19,15 @@ void WPacket::AddRobot(RobotData rd)
 QByteArray WPacket::GetPacket()
 {
     QByteArray rd;
-    //for(int i=0; i<_rdata.count(); ++i)
-    //    rd.append((const char*)&(_rdata[i]), 8); //sizeof(_rdata[i]));
-    foreach(const RobotData& itr, _rdata)
-        rd.append((const char*)&(itr), 8); //sizeof(RobotData);
+
+    for(int i=0; i<_rdata.size(); i++)
+    {
+        _rdata[i].M1 = qToBigEndian<unsigned short int>(_rdata[i].M1);
+        _rdata[i].M2 = qToBigEndian<unsigned short int>(_rdata[i].M2);
+        _rdata[i].M3 = qToBigEndian<unsigned short int>(_rdata[i].M3);
+        _rdata[i].M4 = qToBigEndian<unsigned short int>(_rdata[i].M4);
+        rd.append((const char*)&(_rdata[i]), 11); //sizeof(RobotData);
+    }
 
     unsigned char checksum=0;
     for(int i=0; i<rd.size(); ++i)

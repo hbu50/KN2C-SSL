@@ -18,9 +18,12 @@ public slots:
     void Stop();
 
 private:
-    WorldModel* _wm;
-    OutputBuffer* _outputbuffer;
-    QTimer _timer;
+    WorldModel* wm;
+    OutputBuffer* outputbuffer;
+    QTimer timer;
+
+private slots:
+    void timer_timeout();
 
 };
 

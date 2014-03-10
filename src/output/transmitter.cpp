@@ -9,6 +9,7 @@ Transmitter::Transmitter(QString port, OutputBuffer* buffer, QObject *parent) :
     qDebug() << "Transmitter Initialization...";
 
     _serialport.setPortName(port);
+    _serialport.setBaudRate(QSerialPort::Baud38400);
     _serialport.open(QIODevice::ReadWrite);
     qDebug() << _serialport.errorString();
 
@@ -36,7 +37,27 @@ void Transmitter::sendPacket()
         QByteArray pck = _buffer->wpck.GetPacket();
         QString log;
         log+= "SerialData[" + QString::number(pck.size()) + "]: ";
-        log+= pck.toHex();
+        log+= pck.mid(0,2).toHex();
+        log+= " ";
+        log+= pck.mid(2,1).toHex();
+        log+= " ";
+        log+= pck.mid(3,1).toHex();
+        log+= " ";
+        log+= pck.mid(4,1).toHex();
+        log+= " ";
+        log+= pck.mid(5,2).toHex();
+        log+= " ";
+        log+= pck.mid(7,2).toHex();
+        log+= " ";
+        log+= pck.mid(9,2).toHex();
+        log+= " ";
+        log+= pck.mid(11,2).toHex();
+        log+= " ";
+        log+= pck.mid(13,1).toHex();
+        log+= " ";
+        log+= pck.mid(14,1).toHex();
+        log+= " ";
+        log+= pck.mid(15,1).toHex();
         qDebug() << log;
         _serialport.write(pck);
 
