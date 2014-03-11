@@ -32,20 +32,20 @@ void AI::timer_timeout()
     switch (a)
     {
     case 0:
-        rc.fin_pos.loc = {-1000,-1000};
+        rc.fin_pos.loc = {500,-1000};
         break;
     case 1:
-        rc.fin_pos.loc = {-1000,1000};
+        rc.fin_pos.loc = {500,1000};
         break;
     case 2:
-        rc.fin_pos.loc = {1000,1000};
+        rc.fin_pos.loc = {2500,1000};
         break;
     case 3:
-        rc.fin_pos.loc = {1000,-1000};
+        rc.fin_pos.loc = {2500,-1000};
         break;
     }
 
-    if((wm->ourRobot[0].pos.loc - rc.fin_pos.loc).length2()<100) a=(a+1)%4;
+    if((wm->ourRobot[0].pos.loc - rc.fin_pos.loc).length2()<1000) a=(a+1)%4;
 
     wm->ourRobot[0].SendCommand(rc);
 }
