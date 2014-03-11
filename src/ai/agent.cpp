@@ -38,10 +38,10 @@ void Agent::SendCommand(RobotCommand rc)
     // Real Game Packet
     RobotData reRD;
     reRD.RID = id;
+    reRD.M0 = ctrlres.msR.M0;
     reRD.M1 = ctrlres.msR.M1;
     reRD.M2 = ctrlres.msR.M2;
     reRD.M3 = ctrlres.msR.M3;
-    reRD.M4 = ctrlres.msR.M4;
     reRD.KCK = (rc.kickspeedx>0)?1:0;
     reRD.CHP = 0;
     outputBuffer->wpck.AddRobot(reRD);
@@ -52,10 +52,10 @@ void Agent::SendCommand(RobotCommand rc)
     grRD.velx = ctrlres.rs.VX;
     grRD.vely = ctrlres.rs.VY;
     grRD.velw = ctrlres.rs.VW;
-    grRD.wheel1=ctrlres.msS.M1;
-    grRD.wheel2=ctrlres.msS.M2;
-    grRD.wheel3=ctrlres.msS.M3;
-    grRD.wheel4=ctrlres.msS.M4;
+    grRD.wheel1=ctrlres.msS.M0;
+    grRD.wheel2=ctrlres.msS.M1;
+    grRD.wheel3=ctrlres.msS.M2;
+    grRD.wheel4=ctrlres.msS.M3;
     grRD.kickspeedx=rc.kickspeedx;
     grRD.kickspeedz=rc.kickspeedz;
     grRD.spinner=0;
@@ -67,13 +67,12 @@ void Agent::Halt()
     // Real Game Packet
     RobotData reRD;
     reRD.RID = id;
+    reRD.M0 = 0;
     reRD.M1 = 0;
     reRD.M2 = 0;
     reRD.M3 = 0;
-    reRD.M4 = 0;
     reRD.KCK = 0;
-    //reRD.FLG = 0;
-    //reRD.ASK = 0;
+    reRD.CHP = 0;
     outputBuffer->wpck.AddRobot(reRD);
     // grSim Packet
     grRobotData grRD;

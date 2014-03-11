@@ -29,19 +29,19 @@ struct SendPacketHeader
 struct RobotData
 {
     unsigned char RID;	// robot id
-    signed short int M1;	// motor 1
-    signed short int M2;	// motor 2
-    signed short int M3;	// motor 3
-    signed short int M4;	// motor 4
+    signed short int M0;	// motor 1
+    signed short int M1;	// motor 2
+    signed short int M2;	// motor 3
+    signed short int M3;	// motor 4
     unsigned char KCK;	// kick options
     unsigned char CHP;	// CHIP & SPIN   #SCCCCCCC
 
     RobotData() :
         RID(0xFF),
+        M0(0),
         M1(0),
         M2(0),
         M3(0),
-        M4(0),
         KCK(0),
         CHP(0)
     { }

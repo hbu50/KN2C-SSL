@@ -839,19 +839,19 @@ MotorSpeed Controller::calcReal(RobotSpeed rs)
 
     MotorSpeed result;
 
-    result.M1 = (motor[0][0] /40.0);
-    result.M2 = (motor[1][0] /40.0);
-    result.M3 = (motor[2][0] /40.0);
-    result.M4 = (motor[3][0] /40.0);
+    result.M0 = (motor[0][0] /40.0);
+    result.M1 = (motor[1][0] /40.0);
+    result.M2 = (motor[2][0] /40.0);
+    result.M3 = (motor[3][0] /40.0);
 
-    double max = max4(fabs(result.M1),fabs(result.M2),fabs(result.M3),fabs(result.M4));
+    double max = max4(fabs(result.M0),fabs(result.M1),fabs(result.M2),fabs(result.M3));
 
     if(max > 127)
     {
+        result.M0 = (int)((result.M0 * 127.0)/max);
         result.M1 = (int)((result.M1 * 127.0)/max);
         result.M2 = (int)((result.M2 * 127.0)/max);
         result.M3 = (int)((result.M3 * 127.0)/max);
-        result.M4 = (int)((result.M4 * 127.0)/max);
     }
 
     return result;
@@ -886,10 +886,10 @@ MotorSpeed Controller::calcSimul(RobotSpeed rs)
 
     MotorSpeed result;
 
-    result.M1 = -motor[0][0]*100;
-    result.M2 = -motor[1][0]*100;
-    result.M3 = -motor[2][0]*100;
-    result.M4 = -motor[3][0]*100;
+    result.M0 = -motor[0][0]*100;
+    result.M1 = -motor[1][0]*100;
+    result.M2 = -motor[2][0]*100;
+    result.M3 = -motor[3][0]*100;
 
     return result;
 }

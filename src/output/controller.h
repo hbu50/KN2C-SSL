@@ -37,10 +37,10 @@ struct RobotSpeed
 
 struct MotorSpeed
 {
+    float M0;
     float M1;
     float M2;
     float M3;
-    float M4;
 };
 
 struct ControllerResult
