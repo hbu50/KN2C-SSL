@@ -16,6 +16,7 @@ void MobileObject::timer_timeout()
 
 void MobileObject::seenAt(vector<Position> p, double t, int camera)
 {
+    if(p.size()<1) return;
     Q_UNUSED(camera);
     time = t;
     isValid = true;

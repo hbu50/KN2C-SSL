@@ -3,8 +3,8 @@
 
 // global constants
 #define PLAYERS_MAX_NUM 12
-#define FIELD_MAX_X 3100
-#define FIELD_MAX_Y 2100
+#define FIELD_MAX_X 3250
+#define FIELD_MAX_Y 2250
 #define BALL_RADIUS 22
 #define ROBOT_RADIUS 90
 //public static double MaxX = 3010;

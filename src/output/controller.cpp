@@ -170,9 +170,9 @@ RobotSpeed Controller::calcRobotSpeed_adjt(ControllerInput &ci)
     static double delT;// = {10,10,10,10,10,10,10,10,10,10,10,10};
     //static double Ki;// = {0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01,0.01}; //Kp/Ti
 
-    static double ap=1;
-    static double am=1;
-    static double am2=1;
+    static double ap=5;
+    static double am=5;
+    static double am2=5;
     static double vmax = 1;// MAXROBOTSPEED * ci.speed;
     static double t0;
     //static double t1;

@@ -24,8 +24,28 @@ void AI::Stop()
 
 void AI::timer_timeout()
 {
+    static int a=0;
     RobotCommand rc;
-    rc.fin_pos.loc = {0,0};
     rc.maxSpeed = 5;
+
+    qDebug() << a;
+    switch (a)
+    {
+    case 0:
+        rc.fin_pos.loc = {-1000,-1000};
+        break;
+    case 1:
+        rc.fin_pos.loc = {-1000,1000};
+        break;
+    case 2:
+        rc.fin_pos.loc = {1000,1000};
+        break;
+    case 3:
+        rc.fin_pos.loc = {1000,-1000};
+        break;
+    }
+
+    if((wm->ourRobot[0].pos.loc - rc.fin_pos.loc).length2()<100) a=(a+1)%4;
+
     wm->ourRobot[0].SendCommand(rc);
 }
