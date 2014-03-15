@@ -191,7 +191,7 @@ RobotSpeed Controller::calcRobotSpeed_adjt(ControllerInput &ci)
         err0 = err1;
         //err1 = (Vector2D(-500,0) - ci.cur_pos.loc)*.001;
         err1 = (ci.fin_pos.loc - ci.cur_pos.loc)*.001;
-        qDebug()<<"data :"<<ci.fin_vel.loc.length()*1.5;
+        //qDebug()<<"data :"<<ci.fin_vel.loc.length()*1.5;
         if(err1.length()<0.50)
         {/******************************************************************************/
             Kp = 5.0;//3;//_wm->slider[0]/20.0;
@@ -568,7 +568,7 @@ RobotSpeed Controller::calcRobotSpeed_test(ControllerInput &ci)
         if (Rspeed_filer<-MAXROTATIONSPEED) Rspeed_filer=-MAXROTATIONSPEED;
         RotationSpeed = Rspeed_filer ;
 
-        qDebug()<<ci.cur_pos.loc.x<<ci.cur_pos.loc.y<<ci.fin_pos.loc.x<<ci.fin_pos.loc.y;
+        //qDebug()<<ci.cur_pos.loc.x<<ci.cur_pos.loc.y<<ci.fin_pos.loc.x<<ci.fin_pos.loc.y;
         ///////////////////////////////////////////INJA
         static double dist;
         vb=vmax/2.0;

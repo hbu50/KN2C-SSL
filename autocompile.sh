@@ -6,5 +6,5 @@ cd src
 make -j 8
 cd ..
 cd bin
-./kn2cssl
+./kn2cssl nogui
 
