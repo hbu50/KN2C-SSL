@@ -130,8 +130,6 @@ HEADERS  += \
     ui/renderarea.h \
     util/util.h \
     util/fpscounter.h \
-    aibase/soccer.h \
-    aibase/agent.h \
     output/wpacket.h \
     output/transmitter.h \
     output/grsim.h \
