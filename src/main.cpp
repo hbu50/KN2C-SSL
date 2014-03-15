@@ -43,6 +43,10 @@ int main(int argc, char *argv[])
     MainWindow w(&soccer);
     w.show();
 
+    if(argc > 1)
+        if(strcmp(argv[1], "nogui") == 0)
+            w.hide();
+
     return a.exec();
 }
 
