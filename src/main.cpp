@@ -41,11 +41,12 @@ int main(int argc, char *argv[])
     Soccer soccer;
 
     MainWindow w(&soccer);
-    w.show();
 
+    bool gui = true;
     if(argc > 1)
         if(strcmp(argv[1], "nogui") == 0)
-            w.hide();
+            gui = false;
+    if(gui) w.show();
 
     return a.exec();
 }
