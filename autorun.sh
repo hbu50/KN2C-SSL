@@ -1,7 +1,7 @@
 #!/bin/bash
 
 pkill -f "kn2cssl"
-pause
+read -rsp $'Press any key to continue...\n' -n1 key
 
 cd bin
 
