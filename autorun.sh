@@ -15,7 +15,7 @@ while true; do
   while [ "$OLD_MD5" == "$NEW_MD5" ]; do
     echo `date`
     sleep 15
-    NEW_MD5= $(md5sum kn2cssl)
+    NEW_MD5=$(md5sum kn2cssl)
   done
 
 done
