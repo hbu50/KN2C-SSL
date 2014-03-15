@@ -38,10 +38,10 @@ void AI::timer_timeout()
         rc.fin_pos.loc = {500,1000};
         break;
     case 2:
-        rc.fin_pos.loc = {2500,1000};
+        rc.fin_pos.loc = {1000,1000};
         break;
     case 3:
-        rc.fin_pos.loc = {2500,-1000};
+        rc.fin_pos.loc = {1000,-1000};
         break;
     }
 
