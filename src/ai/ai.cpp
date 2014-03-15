@@ -32,16 +32,16 @@ void AI::timer_timeout()
     switch (a)
     {
     case 0:
-        rc.fin_pos.loc = {500,-1000};
+        rc.fin_pos.loc = {0,-2000};
         break;
     case 1:
-        rc.fin_pos.loc = {500,1000};
+        rc.fin_pos.loc = {0,2000};
         break;
     case 2:
-        rc.fin_pos.loc = {1000,1000};
+        rc.fin_pos.loc = {2000,2000};
         break;
     case 3:
-        rc.fin_pos.loc = {1000,-1000};
+        rc.fin_pos.loc = {2000,-2000};
         break;
     }
 
